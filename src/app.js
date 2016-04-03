@@ -1,7 +1,8 @@
 import React from 'react';
-import Counter from 'components/counter';
-import Addcounter from 'components/addCounter'
-// import { Grid, Col } from 'react-bootstrap';
+import Counters from 'Counter';
+import { Router, Route } from 'react-router';
+
+import { connect } from 'react-redux';
 
 let style;
 
@@ -10,37 +11,27 @@ export default class App extends React.Component{
   render(){
     // console.log(this.props);
     return(
-      <div style={style.counter} className="bootstrap-border centered app">
-        <div>
-          <Counter
-            value={this.props.value}
-            onIncrement={this.props.onIncrement}
-            onDecrement={this.props.onDecrement}
-          />
-        </div>
-        {/*<ListGroup style={{ overflowY: 'scroll', maxHeight: '300px' }}>
-        {
-          this.props.counters.map((counter) => {
-            return (
-                <Counter
-                  key={counter.id}
-                  value={this.props.store.getState()}
-                  onIncrement={this.props.store.dispatch({type: 'INCREMENT', ID: {counter.id}})}
-                  onDecrement={this.props.store.dispatch({type: 'INCREMENT', ID: {counter.id}})}
-                />
-          );
-          })
-        }
-      </ListGroup>*/}
-        <div>
-          <Addcounter
-            onAddCounter={this.props.onAddCounter}
-          />
-        </div>
+      <div className="app">
+        <Router history={this.props.history}>
+            <Route path="/" component={Counters}>
+            </Route>
+        </Router>
       </div>
     );
   }
 }
+
+App.propTypes = {
+  history: React.PropTypes.object.isRequired,
+  counters: React.PropTypes.object.isRequired,
+};
+
+
+function mapStateToProps(state) {
+  return { ...state.reducer };
+}
+
+export default connect(mapStateToProps)(App);
 
 style = {
   counter: {

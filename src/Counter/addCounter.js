@@ -7,7 +7,7 @@ export default class Addcounter extends React.Component{
     return(
       <div>
         {/*<Button onClick={this.props.onAddCounter}>+</Button>*/}
-        <Button>+</Button>
+        <Button onClick={this.props.onAddCounter}> + </Button>
       </div>
     );
   }
