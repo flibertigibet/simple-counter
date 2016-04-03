@@ -12,12 +12,13 @@ import Counterlist from './counterList';
 
 let style;
 
-export default class Counters extends React.Component{
+class Counters extends React.Component{
 
   // static propTypes = {
   //   actions: PropTypes.object.isRequired,
+  //   counters: PropTypes.array.isRequired,
   // }
-  //
+
   // actionHandler = (action, id) => {
   //   switch (action) {
   //     case 'increment':
@@ -36,7 +37,7 @@ export default class Counters extends React.Component{
 
   render(){
     return(
-      <Counterlist />
+      <Counterlist  />
     );
   }
 }

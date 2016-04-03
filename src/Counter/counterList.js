@@ -1,9 +1,16 @@
+import React from 'react';
+import { ListGroup } from 'react-bootstrap';
+import Counter from './counter';
+import Addcounter from './addCounter';
+
+let style;
+
 export default class Counterlist extends React.Component{
 
-  static propTypes = {
-    counters: PropTypes.array.isRequired,
-    actions: PropTypes.func.isRequired,
-  }
+  // static propTypes = {
+  //   counters: PropTypes.array.isRequired,
+  //   actions: PropTypes.func.isRequired,
+  // }
 
   render(){
     return(
@@ -13,8 +20,7 @@ export default class Counterlist extends React.Component{
           this.props.counters.map((counter) => {
             return (
                 <Counter
-                  counter={counter}
-                  actions={actions}
+
                 />
           );
           })
