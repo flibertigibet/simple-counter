@@ -31,7 +31,7 @@ const store = createStore(
     }),
     applyMiddleware(
       thunkMiddleware, // lets us dispatch() functions
-      loggerMiddleware // neat middleware that logs actions
+      // loggerMiddleware // neat middleware that logs actions
     ),
     window.devToolsExtension ? window.devToolsExtension() : f => f
   )

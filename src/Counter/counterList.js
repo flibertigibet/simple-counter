@@ -14,8 +14,8 @@ class Counterlist extends Component{
 
   render(){
     return(
-      <div style={style.counter} className="bootstrap-border centered app">
-        <ListGroup style={{ overflowY: 'scroll', maxHeight: '300px' }}>
+      <div style={style.counterList} className="bootstrap-border centered app">
+        <ListGroup style={{overflowY: 'scroll', height: '200px' }}>
         {
           this.props.counters.map((counter) => {
             return (
@@ -28,7 +28,7 @@ class Counterlist extends Component{
           })
         }
       </ListGroup>
-        <div>
+        <div style={{ marginTop: '50%', marginLeft: '10px' }}>
           <Addcounter
             actions={this.props.actions}
           />
@@ -39,10 +39,11 @@ class Counterlist extends Component{
 }
 
 style = {
-  counter: {
+  counterList: {
     padding: '10px',
     display: 'flex',
     flexDirection: 'row',
+    alignItems: 'space-between',
     flexGrow: '1',
   },
 }

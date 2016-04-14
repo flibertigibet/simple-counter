@@ -4,17 +4,20 @@ import { Router, Route } from 'react-router';
 
 import { connect } from 'react-redux';
 
-let style;
-
 class App extends React.Component{
 
-  render(){
-    // console.log(this.props);
+  render() {
+    const routes = () => {
+      return(
+        null
+      );
+    }
+
     return(
       <div className="app">
         <Router history={this.props.history}>
-            <Route path="/" component={Counters}>
-            </Route>
+          <Route path="/" component={Counters}>
+          </Route>
         </Router>
       </div>
     );
@@ -32,13 +35,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(App);
-
-style = {
-  counter: {
-    backgroundColor: 'white',
-    padding: '10px',
-    display: 'flex',
-    flexDirection: 'row',
-    flexGrow: '1',
-  },
-};

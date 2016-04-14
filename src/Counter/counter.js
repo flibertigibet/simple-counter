@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Button, ButtonToolbar } from 'react-bootstrap';
+import { Button, ButtonToolbar, ListGroupItem } from 'react-bootstrap';
 
 let style;
 
@@ -12,15 +12,15 @@ class Counter extends Component{
 
   render(){
     return(
-      <div style={style.counter}>
+      <ListGroupItem style={style.counter}>
         <div>
           <h1 id="counter">{this.props.counter.count}</h1>
         </div>
         <ButtonToolbar id="counterButtons">
-          <Button bsStyle="success" className="btn-block" onClick={this.props.actions('increment',this.props.counter.ID)}> + </Button>
-          <Button bsStyle="danger" className="btn-block" onClick={this.props.actions('decrement',this.props.counter.ID)}> - </Button>
+          <Button bsStyle="success" className="btn-block" onClick={function foo() {this.props.actions('increment',this.props.counter.ID)}.bind(this)}> + </Button>
+          <Button bsStyle="danger" className="btn-block" onClick={function foo() {this.props.actions('decrement',this.props.counter.ID)}.bind(this)}> - </Button>
         </ButtonToolbar>
-      </div>
+      </ListGroupItem>
     );
   }
 }
