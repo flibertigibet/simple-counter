@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import { ListGroup } from 'react-bootstrap';
 
 // import Counter from './counter';
@@ -12,35 +12,37 @@ import Counterlist from './counterList';
 
 let style;
 
-class Counters extends React.Component{
+class Counters extends Component{
 
-  // static propTypes = {
-  //   actions: PropTypes.object.isRequired,
-  //   counters: PropTypes.array.isRequired,
-  // }
+  static propTypes = {
+    actions: PropTypes.object.isRequired,
+    counters: PropTypes.array.isRequired,
+  }
 
-  // actionHandler = (action, id) => {
-  //   switch (action) {
-  //     case 'increment':
-  //       this.props.actions.increment(id);
-  //       break;
-  //     case 'decrement':
-  //       this.props.actions.decrement(id);
-  //       break;
-  //     case 'addCounter':
-  //       this.props.actions.addCounter();
-  //       break;
-  //     default :
-  //       break;
-  //   }
-  // }
+
+  actionHandler = (action, id) => {
+    switch (action) {
+      case 'increment':
+        this.props.actions.increment(id);
+        break;
+      case 'decrement':
+        this.props.actions.decrement(id);
+        break;
+      case 'addCounter':
+        this.props.actions.addCounter();
+        break;
+      default :
+        break;
+    }
+  }
 
   render(){
     return(
-      <Counterlist  />
+      <Counterlist actions={this.actionHandler} counters={this.props.counters} />
     );
   }
 }
+
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -49,7 +51,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-  return { ...state.reducer.todo };
+  return { ...state.reducer.counters };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counters);

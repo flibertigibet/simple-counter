@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 let style;
 
-export default class App extends React.Component{
+class App extends React.Component{
 
   render(){
     // console.log(this.props);

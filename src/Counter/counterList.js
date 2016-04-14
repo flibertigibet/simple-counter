@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import { ListGroup } from 'react-bootstrap';
 import Counter from './counter';
 import Addcounter from './addCounter';
 
 let style;
 
-export default class Counterlist extends React.Component{
+class Counterlist extends Component{
 
-  // static propTypes = {
-  //   counters: PropTypes.array.isRequired,
-  //   actions: PropTypes.func.isRequired,
-  // }
+  static propTypes = {
+    counters: PropTypes.array.isRequired,
+    actions: PropTypes.func.isRequired,
+  }
 
   render(){
     return(
@@ -20,7 +20,9 @@ export default class Counterlist extends React.Component{
           this.props.counters.map((counter) => {
             return (
                 <Counter
-
+                  key={counter.ID}
+                  counter={counter}
+                  actions={this.props.actions}
                 />
           );
           })
@@ -28,7 +30,7 @@ export default class Counterlist extends React.Component{
       </ListGroup>
         <div>
           <Addcounter
-            onAddCounter={this.props.store.dispatch({type: 'ADDCOUNTER'})}
+            actions={this.props.actions}
           />
         </div>
       </div>
@@ -44,3 +46,5 @@ style = {
     flexGrow: '1',
   },
 }
+
+export default Counterlist;
