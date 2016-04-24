@@ -10,8 +10,6 @@ import { bindActionCreators } from 'redux';
 import { actions } from '../redux/actions';
 import Counterlist from './counterList';
 
-let style;
-
 class Counters extends Component{
 
   static propTypes = {
