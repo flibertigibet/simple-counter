@@ -14,7 +14,7 @@ class Counterlist extends Component{
 
   render(){
     return(
-      <div style={style.counterList} className="bootstrap-border centered app">
+      <div style={style.counterList} className="bootstrap-border centered counter-container">
         <ListGroup style={{overflowY: 'scroll', height: '200px' }}>
         {
           this.props.counters.map((counter) => {
